@@ -1,0 +1,154 @@
+#22/07/24-
+------------------------------------------------------
+ALTER THIS COMMAND IS USED TO ALTER/ MODIFIY THE TABLE.
+__________________________________________________
+1. TO ADD A COLUMN
+ALTER TABLE table_name
+ADD column_name DATATYPE CONSTRAINT;
+
+->TO ADD EMAIL COLUMN IN ACCOUNTS TABLE
+ALTER TABLE ACCOUNTS
+ADD EMAIL VARCHAR(20) UNIQUE;
+
+->To add last name just after name column in accounts
+ALTER TABLE ACCOUNTS
+ADD L_NAME VARCHAR(20) AFTER NAME;
+
+->To add ifsc code in brach table
+ALTER TABLE BRANCH
+ADD IFSC_CODE VARCHAR(20) UNIQUE NOT NULL;
+
+->To add STATE in LOCATION table
+ALTER TABLE LOCATION
+ADD STATE VARCHAR(20);
+_____________________________________________________________________
+2)->TO REMOVE THE COLUMN SYNTAX:
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+-> TO REMOVE COLUMN;
+ALTER TABLE BRANCH
+DROP COLUMN BNAME;
+
+-> TO REMOVE MAIL ID COLUMN FROM ACCOUNTS TABLE;
+ALTER TABLE ACCOUNTS
+DROP COLUMN EMAIL;
+_______________________________________________________________________
+
+3. TO MODIFY THE DATATYPE
+---------------------------------
+ALTER TABLE table_name
+MODIFY column_name new_datatype CONSTRAINTS;
+
+->TO modify the last name datatype FROM VARCHAR TO CHAR
+ALTER TABLE ACCOUNTS
+MODIFY L_NAME CHAR(10);
+------------------------------------------------
+->TO MODIFY THE PINCODE FROM INT TO BIGINT
+ALTER TABLE BRANCH
+MODIFY PINCODE BIGINT;
+_______________________________________________________________________
+4->TO CONVERT THE COLUMN TO NULL/NOT NULL
+
+ALTER TABLE table_name
+MODIFY column_name existing_DATATYPE NULL/NOTNULL
+
+TO CONVERT  LAST NAME FROM NULL TO NOT NULL
+ALTER TABLE ACCOUNTS
+MODIFY L_NAME VARCHAR(20) NOT NULL;
+
+->TO CONVERT  CITY FROM NULL TO NOT NULL
+ALTER TABLE LOCATION
+MODIFY CITY VARCHAR(20) NOT NULL;
+_______________________________________________________________________
+5.TO RENAME A TABLE 
+
+ALTER TABLE table_name
+RENAME new_table_name;
+
+GIVE ANTHORE NAME TO ACCOUNTS TABLE
+ALTER TABLE ACCOUNTS
+RENAME BANK_ACC;
+
+GIVE ANTHORE NAME TO BRANCH TABLE
+ALTER TABLE BRANCH
+RENAME BANK_BRANCHES;
+_______________________________________________________________________
+6.TO RENAME A COLUMN
+
+ALTER TABLE table_name
+CHANGE old_column_name new_column_name existing_datatype;
+
+
+->ALTER TABLE BANK_ACC
+CHANGE NAME FNAME VARCHAR(20);
+
+->TO RENAME ANY COLUMN IN BRANCH TABLE
+ALTER TABLE BANK_BRANCHES
+CHANGE BID BRANCHID INT;
+_______________________________________________________________________
+7. TO add a constraints for a particular column
+
+ALTER TABLE table_name
+ADD CONSTRAINTS PRIMARY KEY(column_name);
+ADD CONSTRAINTS UNIQUE(column_name);
+ADD CONSTRAINTS FOREIGN KEY(column_name) REFERNCES parnet_table(column_name);
+
+ALTER TABLE BANK_ACC
+ADD BRANCHID INT;
+
+ALTER TABLE BANK_ACC
+ADD CONSTRAINT FOREIGN KEY(BRANCHID) REFERENCES BANK_BRANCHES(BRANCHID);
+
+
+ALTER TABLE BANK_BRANCHES
+MODIFY PINCODE INT;
+
+ALTER TABLE BANK_BRANCHES
+ADD CONSTRAINT FOREIGN KEY(PINCODE) REFERENCES LOCATION(PINCODE);
+
+TO CHECK WE HAVE TO DROP LOACTION TABLE
+DROP LOCATION
+_______________________________________________________________________
+ USE INFORMATION_SCHEMA;
+ SHOW TABLES;
+TABLE_CONSTRAINTS
+SELECT  CONSTRAINT_NAME FROM  TABLE_CONSTRAINTS WHERE TABLE_NAME='BANK_ACC';
+USE DEMO;
+ALTER TABLE BANK_ACC
+DROP CONSTRAINT  bank_acc_ibfk_1;
+_____________________________________________
+10. TO DROP A PRIMAMRY KEY
+
+ALTER TABLE table_name
+DROP PRIMAMRY KEY;
+
+ALTER TABLE BANK_ACC
+DROP PRIMARY KEY;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| ACC_NO   | bigint        | NO   |     | NULL    |       |
+| FNAME    | varchar(20)   | YES  |     | NULL    |       |
+| L_NAME   | varchar(20)   | NO   |     | NULL    |       |
+| PHONE    | bigint        | NO   | PRI | NULL    |       |
+| BALANCE  | decimal(12,2) | NO   |     | 0.00    |       |
+| BRANCHID | int           | YES  | MUL | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+_________________________________________________
+11.TO DROP UNIQUE Constaints.
+   ALTER TABLE table_name
+   DROP INDEX column_nmae
+
+   ALTER TABLE BANK_ACC
+   DROP INDEX PHONE;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| ACC_NO   | bigint        | NO   |     | NULL    |       |
+| FNAME    | varchar(20)   | YES  |     | NULL    |       |
+| L_NAME   | varchar(20)   | NO   |     | NULL    |       |
+| PHONE    | bigint        | NO   |     | NULL    |       |
+| BALANCE  | decimal(12,2) | NO   |     | 0.00    |       |
+| BRANCHID | int           | YES  | MUL | NULL    |       |
++----------+---------------+------+-----+---------+-------+

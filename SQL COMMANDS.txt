@@ -1,0 +1,63 @@
+USE DEMO:
+Database changed
+
+DDL->
+CREATE
+ALTER
+DROP
+TRUNCATE
+===============
+DML->
+INSERT
+UPDATE
+DELETE
+========
+TCL->Transaction Control Language
+COMMIT
+ROLLBACK
+SAVEPOINT
+===========
+DCL->
+GRANT
+REVOKE
+==========
+DQL->
+SELCET
+PROJECTION(FUNCTIONS)
+SELECTION (FUNCTIONS)
+JOINS
+-----------------------------------------------------------------
+day19- 19/07/2024
+Creation of Table:
+___________________________
+
+Syntax: CREATE TABLE table name
+(
+    column_nam_1 DATATYPE [CONSTRAINT] NULL/NOT NULL,
+    column_nam_1 DATATYPE [CONSTRAINT] NULL/NOT NULL,
+    :
+    column_nam_1 DATATYPE [CONSTRAINT] NULL/NOT NULL
+);
+============================================
+CREATE TABLE ACCOUNTS
+(
+ ACC_NO BIGINT PRIMARY KEY,
+ NAME VARCHAR(20) NOT NULL,
+ PHONE BIGINT UNIQUE NOT NULL,
+BALANCE DECIMAL(12,2) NOT NULL
+);
+____________________________________-
+CREATE TABLE BRANCH
+(
+ BID INT PRIMARY KEY AUTO_INCREMENT,
+BNAME VARCHAR(20) NOT NULL,
+PINCODE INT UNIQUE NOT NULL
+);
+=============================
+CREATE TABLE LOCATION(
+  PINCODE INT PRIMARY KEY,
+  AREA VARCHAR(20) NOT NULL, 
+  CITY VARCHAR(20)  NULL
+);
+
+___________________________________________________________________

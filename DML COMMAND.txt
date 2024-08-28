@@ -1,0 +1,97 @@
+23/07/24
+
+DROP COMMAND -> THIS COMMAND IS USED TO DELETE A PARTICULAR RECORD FROM THE DATABASE
+
+SYNTAX: DROP TABLE table_name;
+_____________________________________________________
+DROP TABLE BANK_BRANCHES;
+
+_______________________________________________
+DML(DATA MANIPULATION LANGUAGE)
+INSERT: THIS CMD IS USED TO ADD A NEW RECORD INSED THE TABLE.
+
+SYNTAX: INSERT INTO table_name(col1,col2,col3...coln)VALUES(v1,v2,v3,...vn).....
+
+SYNATX2: INSERT INTO table_name VALUES(v1,v2,...vn),(v1,v2,v3...vn).....
+__________________________________________________________________________________________
+INSERT INTO LOCATION(PINCODE,AREA,CITY,STATE)
+VALUES(560040,'Vijaynagar','Bengaluru','Karnataka');
+
+Select * from location;
++---------+------------+-----------+-----------+
+| PINCODE | AREA       | CITY      | STATE     |
++---------+------------+-----------+-----------+
+|  560040 | Vijaynagar | Bengaluru | Karnataka |
++---------+------------+-----------+-----------+
+
+ALTER TABLE LOCATION
+MODIFY STATE VARCHAR(20) DEFAULT 'Karnataka' NOT NULL;
+
+
+INSERT INTO LOCATION(PINCODE,AREA,CITY)
+VALUES(560107,'Parkala','Udupi');
+
+
+Select * from location;
++---------+------------+-----------+-----------+
+| PINCODE | AREA       | CITY      | STATE     |
++---------+------------+-----------+-----------+
+|  560040 | Vijaynagar | Bengaluru | Karnataka |
+|  560107 | Parkala    | Udupi     | Karnataka |
++---------+------------+-----------+-----------+
+
+
+INSERT INTO LOCATION(PINCODE)
+VALUES (56107);  #IT WILL SHOW ERROR.... BEACUSE AREA DOESNOT HAVE DEAFULT VALUE
+____________________________________________________________________________________
+UPDATE COMMAND: THIS COMMAND IS USED TO MODIFY THE RECORDS PRESENT IN THE TABLE
+SYNATX:
+UPDATE table_name
+SET col1=val1[,col2=val2,..,coln=valn]
+[WHERE= filter_condition];
+
+>TO MODIFY SOME RECORDS IN LOCATION TABLE 
+UPDATE LOCATION
+SET AREA='MANIPAL'
+WHERE PINCODE=560107;
+
+>TO MODIFY MULTIPLE COLUMNS;
+
+UPDATE LOCATION 
+SET PINCODE=576107,AREA='PARKALA'
+WHERE PINCODE=560107;
+
+>
+UPDATE LOCATION
+SET CITY='MUMBAI';
+
++---------+------------+--------+-----------+
+| PINCODE | AREA       | CITY   | STATE     |
++---------+------------+--------+-----------+
+|  560040 | Vijaynagar | MUMBAI | Karnataka |
+|  576107 | PARKALA    | MUMBAI | Karnataka |
++---------+------------+--------+-----------+
+
+INSERT INTO LOCATION(PINCODE,AREA,CITY)
+VALUES(56111,'MANIPAL','Udupi');
+
+______________________________________________________
+DELETE: THIS COMMAND IS USED TO DELETE THE PARTICULAR RECORD FROM THE TABLE
+DELETE FROM table_name
+WHERE [filter_Condition]
+
+DELETE FROM LOCATION
+WHERE AREA='MANIPAL';
+_________________________________________
+UPDATE LOCATION
+SET CITY= NULL
+WHERE PINCODE=560040;
+
+ALTER TABLE LOCATION
+________________________
+TRUNCATE: IT IS USED TO delete all the records from the table,but the table structure remains same.
+DROP: IT USED TO DELETE ALL THE RECORDS ALONG WITH TABLE STRUCTURE FROM THE DATABASE.
+DELETE: IT IS USED TO DELETE THE PARTICULAR ROW FROM THE TABLE,ALSO USED TO DELETE ENTIRE TABLE WITH STRUCTRE.
+
+RDBMS- IT IS USED TO STROE THE DATA IN THE FROM OF TABLE IT IS SQL
+DBMS- IT IS USED TO STORE THE DATA IN THE FROM OF FILE. IT IS QUERY

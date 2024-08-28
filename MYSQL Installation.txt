@@ -1,0 +1,15 @@
+>To create a database.
+________ ____ _______________
+syntax= CREATE DATABASE database_name;
+
+> To acess a database:
+=========================
+synatx: USE database_name;
+
+>To check the database that are available:
+==========================================
+syntax: SHOW DATABASES;
+
+>To check the table that are available in database:
+====================================
+synatx:SHOW TABLES;

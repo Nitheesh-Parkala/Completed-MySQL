@@ -1,0 +1,67 @@
+DCL(DATA CONTROL LANGUAGE)
+=============================
+GRANT: THIS SATEMENT IS USED TO GRANT THE PREMISSION TO ACESS THE DATA FOR THE OTHER USER.
+SYNTAX: GRANT sql_statemnt ON table_name
+         TO 'user_name'@'localhost';
+
+REVOKE:THIS STATEMNT IS USED TO TAKE BACK THE PREMISSIN FROM THE OTHER USER.
+SYNTAX: REVOKE sql_statement ON table_name
+        FROM 'user_name'@'localhost';
+
+key attributes:
+===============
+1) superkey:
+============
+super key is the combination and It is used to make one records as unique.
+
+2)candidate key:
+ =============
+It is a minmal subset of super key
+
+3)primary key:
+==============
+it is the unique idenetifier in the data base table and it should not be null.
+
+4) foreign key:
+===============
+It is used to estabilsh the realtionship between two tables.
+
+5)composite key:
+================
+It is the combination two or more key attributes.
+
+6)compund key:
+=============
+It is the combination two or more key attributes atleast one must be a foriegn key.
+
+Total Functional DependencY:
+=============================
+here each all  key attirubute is depends one one key attribute
+
+Portial Functional Depedecy
+===========================
+here we r composite the two key  into one and other key attirubutes are depneds one they.
+
+Transitive Functional Dependecy.
+===============================
+here each key attribute will depend on the one key attribute also from each key there also one key attribute will depend on each other.
+
+REDUANDENCY:
+===========
+PROCESS OF REMOVONG REPITION OR DUPLICATE DATA FROM THE TABLE.
+
+
+NORMALIZATION:
+==============
+PROCESS OF SPLITING LARGER TABLE INTO SMALLER TABLE IS CALLED NORAMILZATION to provide redanducy and anomoly.
+
+ANOMOLY:
+============
+THE PROBLEMS CAUSED DUE TO DML OPERATION.
+
+
+1NF:
+====
+THE TABLE MUST NOT CONTAIN ANY DUPLICATE RECORDS.
+THE DATA INSIDE THE CELL MUST BEA SINGLE VALUE DATA OR ATOMIC DATA.
+
